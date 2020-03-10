@@ -1,8 +1,8 @@
 # A Serverless Rust API on AWS
 
-###What do you need?
+### What do you need?
 
-####Rust
+#### Rust
 
 To run Rust code locally, compile and create the binary file we need, you must have Rust installed.
 
@@ -14,19 +14,19 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ---
-####AWS Account
+#### AWS Account
 
 You can create a free tier account on AWS Website.
 
 ---
-####AWS and SAM CLIs
+#### AWS and SAM CLIs
 
 To make it easier to deploy our code and create the needed AWS resources we need both [AWS](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html) CLIs installed.
 
 Follow the instruction on the links to install them and then [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) your AWS CLI.
 
 ---
-####Docker
+#### Docker
 
 Docker is needed if you are not running Linux. This project was created on MacOS and uses Docker and we're assuming you do too.
 
