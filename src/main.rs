@@ -26,6 +26,6 @@ pub fn api_gateway_handler(request: ApiRequest, _c: Context) -> Result<ApiRespon
         body: format!("Hello, {} from {}!", body.name, body.city),
         ..Default::default()
     };
-    
+
     Ok(response)
 }

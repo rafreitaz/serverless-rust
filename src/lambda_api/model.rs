@@ -34,8 +34,7 @@ pub struct ApiResponse {
     pub headers: HashMap<String, String>,
 }
 
-#[derive(Deserialize, Serialize)]
-#[derive(Default)]
+#[derive(Deserialize, Serialize, Default)]
 pub struct RequestBody {
     pub name: String,
     pub city: string,
