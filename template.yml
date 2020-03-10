@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Rust Api
+  Sample SAM Template for serverless-rust
+Resources:
+  ServerlessRustApiFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: ['sts:AssumeRole']
+            Effect: Allow
+            Principal:
+              Service: [lambda.amazonaws.com]
+        Version: '2012-10-17'
+      Policies:
+        - PolicyDocument:
+            Statement:
+              - Action: ['cloudwatch:*', 'logs:*']
+                Effect: Allow
+                Resource: '*'
+            Version: '2012-10-17'
+          PolicyName: lambdaRoleAPIG
+      RoleName: ServerlessRustApiExecutionRole
+
+  ServerlessRustApiFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: serverless-rust
+      AutoPublishAlias: live
+      CodeUri: target/lambda/release/serverless-rust.zip
+      Handler: doesnt.matter
+      Runtime: provided
+      MemorySize: 128
+      Timeout: 5
+      Role: !GetAtt ["ServerlessRustApiExecutionRole", "Arn"]
+      Events:
+        ACRustLambda:
+          Type: Api
+          Properties:
+            Path: /api/greet
+            Method: POST
